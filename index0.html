@@ -15,13 +15,6 @@
               background-position: center;
               background-repeat: no-repeat;
               position: relative;
-              padding-left: 320px; /* 为侧边栏留出空间 */
-          }
-          
-          @media (max-width: 1024px) {
-              body {
-                  padding-left: 0; /* 小屏幕时取消左边距 */
-              }
           }
           
           /* 模糊背景层 */
@@ -168,214 +161,6 @@
             .course-content {
                 grid-template-columns: 1fr;
                 gap: 1rem;
-            }
-        }
-        
-        /* 侧边栏导航样式 - 透明毛玻璃效果 */
-        .sidebar-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 300px;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(30px) saturate(180%);
-            -webkit-backdrop-filter: blur(30px) saturate(180%);
-            border-right: 1px solid rgba(255, 255, 255, 0.25);
-            z-index: 1000;
-            overflow-y: auto;
-            padding: 1rem;
-            transform: translateX(0);
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.06),
-                0 2px 16px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-        
-        @media (max-width: 1024px) {
-            .sidebar-nav {
-                transform: translateX(-100%);
-            }
-            
-            .sidebar-nav.open {
-                transform: translateX(0);
-            }
-        }
-        
-        .sidebar-title {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', '微软雅黑', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1a0c06;
-            margin: -1rem -1rem 2rem -1rem;
-            padding: 1.8rem 1.5rem;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.3) 0%, 
-                rgba(255, 255, 255, 0.15) 100%);
-            backdrop-filter: blur(20px) saturate(150%);
-            -webkit-backdrop-filter: blur(20px) saturate(150%);
-            position: relative;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 
-                0 2px 16px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-title:hover {
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.4) 0%, 
-                rgba(255, 255, 255, 0.25) 100%);
-            transform: translateY(-1px);
-            box-shadow: 
-                0 4px 20px rgba(0, 0, 0, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5);
-        }
-        
-        .sidebar-section {
-            margin-bottom: 2rem;
-        }
-        
-        .sidebar-section-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #b93919;
-            margin-bottom: 0.75rem;
-            padding: 0.5rem 0.75rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px) saturate(130%);
-            -webkit-backdrop-filter: blur(15px) saturate(130%);
-            border-radius: 0.75rem;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 
-                0 2px 8px rgba(0, 0, 0, 0.04),
-                inset 0 0.5px 0 rgba(255, 255, 255, 0.25);
-            transition: all 0.2s ease;
-        }
-        
-        .sidebar-course-item {
-            display: block;
-            padding: 0.5rem 0.75rem;
-            color: #000000;
-            text-decoration: none;
-            border-radius: 0.375rem;
-            transition: all 0.2s ease;
-            margin-bottom: 0.25rem;
-            font-size: 0.875rem;
-            cursor: pointer;
-        }
-        
-                .sidebar-course-item:hover {
-            background: rgba(59, 130, 246, 0.12);
-            backdrop-filter: blur(10px) saturate(120%);
-            -webkit-backdrop-filter: blur(10px) saturate(120%);
-            color: #b93919;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            box-shadow: 
-                0 2px 8px rgba(59, 130, 246, 0.1),
-                inset 0 0.5px 0 rgba(255, 255, 255, 0.3);
-            transform: translateX(2px);
-        }
-
-        .sidebar-course-item.active {
-            background: rgba(59, 130, 246, 0.18);
-            backdrop-filter: blur(15px) saturate(140%);
-            -webkit-backdrop-filter: blur(15px) saturate(140%);
-            color: #b93919;
-            font-weight: 500;
-            border: 1px solid rgba(59, 130, 246, 0.25);
-            box-shadow: 
-                0 4px 12px rgba(59, 130, 246, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.35);
-            transform: translateX(3px);
-        }
-        
-        .sidebar-course-description {
-            display: none;
-            font-size: 0.75rem;
-            color: #9ca3af;
-            margin-top: 0.25rem;
-            padding-left: 0.5rem;
-            border-left: 2px solid rgba(59, 130, 246, 0.3);
-        }
-        
-        .sidebar-course-item:hover .sidebar-course-description {
-            display: block;
-        }
-        
-        /* 移动端汉堡菜单 - 透明毛玻璃效果 */
-        .mobile-menu-toggle {
-            display: none;
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            z-index: 1001;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(25px) saturate(160%);
-            -webkit-backdrop-filter: blur(25px) saturate(160%);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: 0.75rem;
-            padding: 0.75rem;
-            cursor: pointer;
-            box-shadow: 
-                0 8px 20px rgba(0, 0, 0, 0.08),
-                0 2px 8px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            transition: all 0.2s ease;
-        }
-
-        .mobile-menu-toggle:hover {
-            background: rgba(255, 255, 255, 0.22);
-            backdrop-filter: blur(30px) saturate(180%);
-            -webkit-backdrop-filter: blur(30px) saturate(180%);
-            border-color: rgba(255, 255, 255, 0.35);
-            transform: translateY(-1px);
-            box-shadow: 
-                0 12px 28px rgba(0, 0, 0, 0.12),
-                0 4px 12px rgba(0, 0, 0, 0.06),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4);
-        }
-
-        /* 侧边栏滚动条美化 - 苹果风格 */
-        .sidebar-nav::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .sidebar-nav::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
-            margin: 4px 0;
-        }
-
-        .sidebar-nav::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.2s ease;
-        }
-
-        .sidebar-nav::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.35);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: scaleX(1.2);
-        }
-
-        .sidebar-nav::-webkit-scrollbar-thumb:active {
-            background: rgba(255, 255, 255, 0.5);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Firefox滚动条样式 */
-        .sidebar-nav {
-            scrollbar-width: thin;
-            scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
-        }
-        
-        @media (max-width: 1024px) {
-            .mobile-menu-toggle {
-                display: block;
             }
         }
         
@@ -2324,9 +2109,7 @@
         .stage-divider {
             margin: 2.5rem 0;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1010;
+            position: relative;
         }
         
         .stage-divider::before {
@@ -2344,7 +2127,7 @@
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(30px) saturate(180%);
             -webkit-backdrop-filter: blur(30px) saturate(180%);
-            padding: 1.2rem 3rem;
+            padding: 2rem 3rem;
             border-radius: 2.5rem;
             color: #1f2937;
             font-weight: bold;
@@ -2356,12 +2139,9 @@
             box-shadow: 
                 0 15px 35px rgba(0, 0, 0, 0.08),
                 0 4px 16px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                0 0 0 15px rgba(255, 255, 255, 0.95);
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
             text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
             transition: all 0.3s ease;
-            width: 450px;
-            text-align: center;
         }
         
         .stage-title:hover {
@@ -2373,29 +2153,100 @@
             box-shadow: 
                 0 20px 45px rgba(0, 0, 0, 0.12),
                 0 8px 20px rgba(0, 0, 0, 0.06),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4),
-                0 0 0 18px rgba(255, 255, 255, 0.97);
-            width: 450px;
-        }
-
-        /* 为四个阶段设置递增的z-index - 确保高于侧边栏和其他元素 */
-        #stage1 {
-            z-index: 1010;
-        }
-
-        #stage2 {
-            z-index: 1011;
-        }
-
-        #stage3 {
-            z-index: 1012;
-        }
-
-        #stage4 {
-            z-index: 1013;
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
         }
         
-
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.65) 0%, 
+                rgba(255, 255, 255, 0.55) 100%);
+            backdrop-filter: blur(60px) saturate(180%);
+            -webkit-backdrop-filter: blur(60px) saturate(180%);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 1.5rem 0;
+            box-shadow: 
+                0 1px 0 rgba(255, 255, 255, 0.5),
+                0 4px 20px rgba(0, 0, 0, 0.06),
+                0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            max-width: 4xl;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .nav-link {
+            color: #1f2937;
+            text-decoration: none;
+            padding: 0.875rem 1.75rem;
+            border-radius: 1.125rem;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.15) 0%, 
+                rgba(255, 255, 255, 0.08) 100%);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.08),
+                0 2px 8px rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.02);
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.25) 0%, 
+                rgba(255, 255, 255, 0.05) 100%);
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .nav-link:hover {
+            color: #111827;
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.12) 100%);
+            backdrop-filter: blur(50px) saturate(200%);
+            -webkit-backdrop-filter: blur(50px) saturate(200%);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.12),
+                0 8px 16px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+        }
+        
+        .nav-link:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-link:active {
+            transform: translateY(-1px);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.25) 0%, 
+                rgba(255, 255, 255, 0.15) 100%);
+        }
         
         /* 苹果风格半透明毛玻璃 */
         .liquid-glass-wrapper {
@@ -2864,198 +2715,85 @@
 </head>
 <body class="text-slate-700">
 
-    <!-- 移动端汉堡菜单按钮 -->
-    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-    </button>
-
-    <!-- 侧边栏导航 -->
-    <nav class="sidebar-nav" id="sidebarNav">
-                    <div class="sidebar-title">Python阶段2课程目录</div>
-        
-        <!-- 第一阶段：游戏开发 (1-20课) -->
-        <div class="sidebar-section">
-            <div class="sidebar-section-title">💻第1-20课：Arcade游戏开发 <br>_ 从绘图到交互游戏</div>
-            <a href="#lesson-1" class="sidebar-course-item" onclick="highlightLesson('lesson-1')">
-                第1课：绘制方块
-            </a>
-            <a href="#lesson-2" class="sidebar-course-item" onclick="highlightLesson('lesson-2')">
-                第2课：绘制小车
-            </a>
-            <a href="#lesson-3" class="sidebar-course-item" onclick="highlightLesson('lesson-3')">
-                第3课：移动小车
-            </a>
-            <a href="#lesson-4" class="sidebar-course-item" onclick="highlightLesson('lesson-4')">
-                第4课：冒险小车1
-            </a>
-            <a href="#lesson-5" class="sidebar-course-item" onclick="highlightLesson('lesson-5')">
-                第5课：冒险小车2
-            </a>
-            <a href="#lesson-6" class="sidebar-course-item" onclick="highlightLesson('lesson-6')">
-                第6课：冒险小车3
-            </a>
-            <a href="#lesson-7" class="sidebar-course-item" onclick="highlightLesson('lesson-7')">
-                第7课：大鱼吃小鱼1
-            </a>
-            <a href="#lesson-8" class="sidebar-course-item" onclick="highlightLesson('lesson-8')">
-                第8课：大鱼吃小鱼2
-            </a>
-            <a href="#lesson-9" class="sidebar-course-item" onclick="highlightLesson('lesson-9')">
-                第9课：大鱼吃小鱼3
-            </a>
-            <a href="#lesson-10" class="sidebar-course-item" onclick="highlightLesson('lesson-10')">
-                第10课：大鱼吃小鱼4
-            </a>
-            <a href="#lesson-11" class="sidebar-course-item" onclick="highlightLesson('lesson-11')">
-                第11课：祖国生日快乐
-            </a>
-            <a href="#lesson-12" class="sidebar-course-item" onclick="highlightLesson('lesson-12')">
-                第12课：五星红旗1：大五角星
-            </a>
-            <a href="#lesson-13" class="sidebar-course-item" onclick="highlightLesson('lesson-13')">
-                第13课：五星红旗2：小五角星
-            </a>
-            <a href="#lesson-14" class="sidebar-course-item" onclick="highlightLesson('lesson-14')">
-                第14课：火箭飞行
-            </a>
-            <a href="#lesson-15" class="sidebar-course-item" onclick="highlightLesson('lesson-15')">
-                第15课：追梦星空
-            </a>
-            <a href="#lesson-16" class="sidebar-course-item" onclick="highlightLesson('lesson-16')">
-                第16课：雷达1：绘制
-            </a>
-            <a href="#lesson-17" class="sidebar-course-item" onclick="highlightLesson('lesson-17')">
-                第17课：雷达2：侦测
-            </a>
-            <a href="#lesson-18" class="sidebar-course-item" onclick="highlightLesson('lesson-18')">
-                第18课：雷达3：扫描
-            </a>
-            <a href="#lesson-19" class="sidebar-course-item" onclick="highlightLesson('lesson-19')">
-                第19课：时钟
-            </a>
-            <a href="#lesson-20" class="sidebar-course-item" onclick="highlightLesson('lesson-20')">
-                第20课：烟花
-            </a>
-                    </div>
-
-        <!-- 第二阶段：数据分析 (21-30课) -->
-        <div class="sidebar-section">
-            <div class="sidebar-section-title">📊 第21-30课：数据分析可视化 _ Pandas + 图表制作</div>
-            <a href="#lesson-21" class="sidebar-course-item" onclick="highlightLesson('lesson-21')">
-                第21课：诗词之美
-            </a>
-            <a href="#lesson-22" class="sidebar-course-item" onclick="highlightLesson('lesson-22')">
-                第22课：诗落谁家
-            </a>
-            <a href="#lesson-23" class="sidebar-course-item" onclick="highlightLesson('lesson-23')">
-                第23课：电影评论分析
-            </a>
-            <a href="#lesson-24" class="sidebar-course-item" onclick="highlightLesson('lesson-24')">
-                第24课：谁是主角
-            </a>
-            <a href="#lesson-25" class="sidebar-course-item" onclick="highlightLesson('lesson-25')">
-                第25课：关键词云
-            </a>
-            <a href="#lesson-26" class="sidebar-course-item" onclick="highlightLesson('lesson-26')">
-                第26课：文字联结
-            </a>
-            <a href="#lesson-27" class="sidebar-course-item" onclick="highlightLesson('lesson-27')">
-                第27课：烽火赤壁
-            </a>
-            <a href="#lesson-28" class="sidebar-course-item" onclick="highlightLesson('lesson-28')">
-                第28课：三国鼎立
-            </a>
-            <a href="#lesson-29" class="sidebar-course-item" onclick="highlightLesson('lesson-29')">
-                第29课：律动的图表（上）
-            </a>
-            <a href="#lesson-30" class="sidebar-course-item" onclick="highlightLesson('lesson-30')">
-                第30课：律动的图表（下）
-            </a>
-                </div>
-                    
-        <!-- 第三阶段：PDF文档生成 (31-40课) -->
-        <div class="sidebar-section">
-            <div class="sidebar-section-title">📄 第31-40课：PDF文档生成 <br>_ ReportLab + 图像处理</div>
-            <a href="#lesson-31" class="sidebar-course-item" onclick="highlightLesson('lesson-31')">
-                第31课：初识 Reportlab
-            </a>
-            <a href="#lesson-32" class="sidebar-course-item" onclick="highlightLesson('lesson-32')">
-                第32课：我的 To Do List
-            </a>
-            <a href="#lesson-33" class="sidebar-course-item" onclick="highlightLesson('lesson-33')">
-                第33课：源码奖状
-            </a>
-            <a href="#lesson-34" class="sidebar-course-item" onclick="highlightLesson('lesson-34')">
-                第34课：源码学生证
-            </a>
-            <a href="#lesson-35" class="sidebar-course-item" onclick="highlightLesson('lesson-35')">
-                第35课：时光记录卡
-            </a>
-            <a href="#lesson-36" class="sidebar-course-item" onclick="highlightLesson('lesson-36')">
-                第36课：源码手册
-            </a>
-            <a href="#lesson-37" class="sidebar-course-item" onclick="highlightLesson('lesson-37')">
-                第37课：文档魔法
-            </a>
-            <a href="#lesson-38" class="sidebar-course-item" onclick="highlightLesson('lesson-38')">
-                第38课：源码表格
-            </a>
-            <a href="#lesson-39" class="sidebar-course-item" onclick="highlightLesson('lesson-39')">
-                第39课：寄往源码世界的信
-            </a>
-            <a href="#lesson-40" class="sidebar-course-item" onclick="highlightLesson('lesson-40')">
-                第40课：源码手账
-            </a>
-                </div>
-                    
-        <!-- 第四阶段：GUI应用开发 (41-50课) -->
-        <div class="sidebar-section">
-            <div class="sidebar-section-title">🖥️ 第41-50课：GUI桌面应用 <br>_ PySide2界面开发</div>
-            <a href="#lesson-41" class="sidebar-course-item" onclick="highlightLesson('lesson-41')">
-                第41课：神奇24
-            </a>
-            <a href="#lesson-42" class="sidebar-course-item" onclick="highlightLesson('lesson-42')">
-                第42课：分秒必争
-            </a>
-            <a href="#lesson-43" class="sidebar-course-item" onclick="highlightLesson('lesson-43')">
-                第43课：指尖上的节奏
-            </a>
-            <a href="#lesson-44" class="sidebar-course-item" onclick="highlightLesson('lesson-44')">
-                第44课：转转抽奖机
-            </a>
-            <a href="#lesson-45" class="sidebar-course-item" onclick="highlightLesson('lesson-45')">
-                第45课：定时的魅力
-            </a>
-            <a href="#lesson-46" class="sidebar-course-item" onclick="highlightLesson('lesson-46')">
-                第46课：托盘上的猫
-            </a>
-            <a href="#lesson-47" class="sidebar-course-item" onclick="highlightLesson('lesson-47')">
-                第47课：托盘上的菜单
-            </a>
-            <a href="#lesson-48" class="sidebar-course-item" onclick="highlightLesson('lesson-48')">
-                第48课：画中画1
-            </a>
-            <a href="#lesson-49" class="sidebar-course-item" onclick="highlightLesson('lesson-49')">
-                第49课：画中画2
-            </a>
-            <a href="#lesson-50" class="sidebar-course-item" onclick="highlightLesson('lesson-50')">
-                第50课：RGB调色板
-            </a>
-                </div>
+    <!-- 导航栏 -->
+    <nav class="nav-bar">
+        <div class="nav-links">
+            <a href="#stage1" class="nav-link">第1-20课：游戏开发</a>
+            <a href="#stage2" class="nav-link">第21-30课：数据分析</a>
+            <a href="#stage3" class="nav-link">第31-40课：ReportLab</a>
+            <a href="#stage4" class="nav-link">第41-50课：PySide2</a>
+        </div>
     </nav>
 
-
-
     <div class="container mx-auto p-4 md:p-8">
+        <!-- 网页标题 -->
+        <header class="text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-bold mb-8 leading-tight relative">
+                <span class="bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 bg-clip-text text-transparent drop-shadow-2xl">
+                    Python编程完整课程大纲
+                </span>
+                <div class="absolute inset-0 bg-gradient-to-r from-white/20 via-white/30 to-white/20 bg-clip-text text-transparent blur-sm">
+                    Python编程完整课程大纲
+                </div>
+            </h1>
+        </header>
 
+        <!-- 课程说明 -->
+        <div class="liquid-glass-wrapper rounded-3xl p-8 mb-16 relative overflow-hidden">
+            <div class="liquid-glass-effect"></div>
+            <div class="liquid-glass-tint"></div>
+            <div class="liquid-glass-shine"></div>
+            <div class="liquid-glass-content">
+            <!-- 背景装饰 -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full opacity-5 -translate-y-16 translate-x-16"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-green-400 to-blue-500 rounded-full opacity-5 translate-y-12 -translate-x-12"></div>
+            
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 relative">
+                    <span class="bg-gradient-to-r from-slate-700 via-slate-600 to-slate-700 bg-clip-text text-transparent drop-shadow-lg">
+                        📚 课程体系说明
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-white/15 via-white/25 to-white/15 bg-clip-text text-transparent blur-sm">
+                        📚 课程体系说明
+                    </div>
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                    <div class="group relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border-2 border-blue-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <div class="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">🎮</div>
+                        <h3 class="font-bold text-blue-700 text-lg mb-2">第1-20课</h3>
+                        <p class="text-blue-600 font-medium">Arcade游戏开发<br/>从绘图到交互游戏</p>
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
+                </div>
+                    
+                    <div class="group relative bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl border-2 border-green-200 hover:border-green-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <div class="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">📊</div>
+                        <h3 class="font-bold text-green-700 text-lg mb-2">第21-30课</h3>
+                        <p class="text-green-600 font-medium">数据分析可视化<br/>Pandas + 图表制作</p>
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-400 to-green-600 opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
+                </div>
+                    
+                    <div class="group relative bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl border-2 border-purple-200 hover:border-purple-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <div class="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">📄</div>
+                        <h3 class="font-bold text-purple-700 text-lg mb-2">第31-40课</h3>
+                        <p class="text-purple-600 font-medium">PDF文档生成<br/>ReportLab + 图像处理</p>
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-400 to-purple-600 opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
+                </div>
+                    
+                    <div class="group relative bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-2xl border-2 border-orange-200 hover:border-orange-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <div class="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">🖥️</div>
+                        <h3 class="font-bold text-orange-700 text-lg mb-2">第41-50课</h3>
+                        <p class="text-orange-600 font-medium">GUI桌面应用<br/>PySide2界面开发</p>
+                        <div class="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600 opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
 
         <!-- ================================= 第一阶段：游戏开发 ================================= -->
         <div id="stage1" class="stage-divider">
-            <div class="stage-title">Arcade游戏开发 (第1-20课)</div>
+            <div class="stage-title">第一阶段：Python游戏开发基础 (第1-20课)</div>
         </div>
 
         
@@ -3882,7 +3620,7 @@
 
         <!-- ================================= 第二阶段：数据分析 ================================= -->
         <div id="stage2" class="stage-divider">
-            <div class="stage-title">数据分析可视化 (第21-30课)</div>
+            <div class="stage-title">第二阶段：数据分析与可视化 (第21-30课)</div>
         </div>
 
 
@@ -4304,7 +4042,7 @@
 
         <!-- ================================= 第三阶段：ReportLab ================================= -->
         <div id="stage3" class="stage-divider">
-            <div class="stage-title">PDF文档生成 (第31-40课)</div>
+            <div class="stage-title">第三阶段：ReportLab文档生成 (第31-40课)</div>
         </div>
 
 
@@ -4698,7 +4436,7 @@
 
         <!-- ================================= 第四阶段：PySide2 ================================= -->
         <div id="stage4" class="stage-divider">
-            <div class="stage-title">GUI桌面应用 (第41-50课)</div>
+            <div class="stage-title">第四阶段：PySide2 GUI开发 (第41-50课)</div>
         </div>
 
 
@@ -5103,132 +4841,29 @@
     </div>
 
     <script>
-        // 移动端侧边栏切换
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebarNav');
-            sidebar.classList.toggle('open');
-        }
-
-        // 高亮选中的课程并滚动到对应位置
-        function highlightLesson(lessonId) {
-            // 移除所有课程的活跃状态
-            document.querySelectorAll('.sidebar-course-item').forEach(item => {
-                item.classList.remove('active');
-            });
+        // 简单的导航栏交互
+        window.addEventListener('scroll', function() {
+            const sections = ['stage1', 'stage2', 'stage3', 'stage4'];
+            const navItems = document.querySelectorAll('.nav-link');
             
-            // 为当前点击的课程添加活跃状态
-            event.target.classList.add('active');
+            let currentSection = '';
             
-            // 滚动到对应的课程卡片
-            const targetElement = document.getElementById(lessonId);
-            if (targetElement) {
-                // 先滚动到元素位置，然后再调整偏移
-                targetElement.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
-                });
-                
-                // 等待滚动完成后，再进行微调
-                setTimeout(() => {
-                    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    const titleHeight = 130; // 标题框高度约80px + 50px舒适缓冲
-                    
-                    // 检查是否接近页面底部
-                    const windowHeight = window.innerHeight;
-                    const documentHeight = document.documentElement.scrollHeight;
-                    const maxScrollTop = documentHeight - windowHeight;
-                    
-                    // 如果当前已经在底部附近，减少偏移量或不偏移
-                    let adjustedPosition;
-                    if (currentScrollTop >= maxScrollTop - 50) {
-                        // 接近底部时，只使用很小的偏移量或不偏移
-                        adjustedPosition = Math.max(0, currentScrollTop - 30);
-                    } else {
-                        // 正常情况下使用标准偏移量
-                        adjustedPosition = Math.max(0, currentScrollTop - titleHeight);
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= 150 && rect.bottom >= 150) {
+                        currentSection = section;
                     }
-                    
-                    window.scrollTo({
-                        top: adjustedPosition,
-                        behavior: 'smooth'
-                    });
-                }, 100); // 短暂延迟确保第一次滚动开始
-                
-                // 添加高亮效果
-                setTimeout(() => {
-                    // 轻微放大
-                    targetElement.style.transform = 'scale(1.02)';
-                    targetElement.style.transition = 'all 0.3s ease';
-                    
-                    // 金光闪烁效果 - 适中光晕
-                    const goldGlow = '0 0 15px #ffd700, 0 0 30px #ffd700';
-                    const goldBorder = '4px solid #ffd700';
-                    
-                    // 金光闪现
-                    targetElement.style.boxShadow = goldGlow;
-                    targetElement.style.border = goldBorder;
-                    
-                    // 500ms后恢复正常
-                    setTimeout(() => {
-                        targetElement.style.transform = '';
-                        targetElement.style.boxShadow = '';
-                        targetElement.style.border = '';
-                        targetElement.style.transition = '';
-                    }, 500);
-                }, 300); // 等待滚动开始后再添加高亮效果
-            }
-            
-            // 在移动端点击后自动关闭侧边栏
-            if (window.innerWidth <= 1024) {
-                toggleSidebar();
-            }
-        }
-
-        // 滚动时智能高亮当前可见的课程
-        function updateActiveLesson() {
-            const lessons = document.querySelectorAll('section[id^="lesson-"]');
-            const sidebarItems = document.querySelectorAll('.sidebar-course-item');
-            
-            let currentLesson = '';
-            const viewportCenter = window.innerHeight / 2;
-            
-            lessons.forEach(lesson => {
-                const rect = lesson.getBoundingClientRect();
-                if (rect.top <= viewportCenter && rect.bottom >= viewportCenter) {
-                    currentLesson = lesson.id;
                 }
             });
             
-            // 更新侧边栏活跃状态
-            sidebarItems.forEach(item => {
+            navItems.forEach(item => {
                 item.classList.remove('active');
-                const href = item.getAttribute('href');
-                if (href === '#' + currentLesson) {
+                if (item.getAttribute('href') === '#' + currentSection) {
                     item.classList.add('active');
                 }
             });
-        }
-
-        // 滚动时更新侧边栏活跃课程
-        window.addEventListener('scroll', function() {
-            updateActiveLesson();
-        });
-
-        // 点击侧边栏外部区域关闭侧边栏（移动端）
-        document.addEventListener('click', function(e) {
-            if (window.innerWidth <= 1024) {
-                const sidebar = document.getElementById('sidebarNav');
-                const toggleButton = document.querySelector('.mobile-menu-toggle');
-                
-                if (!sidebar.contains(e.target) && !toggleButton.contains(e.target)) {
-                    sidebar.classList.remove('open');
-                }
-            }
-        });
-
-        // 初始化时更新活跃状态
-        document.addEventListener('DOMContentLoaded', function() {
-            updateActiveLesson();
         });
     </script>
 
